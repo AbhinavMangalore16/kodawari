@@ -3,7 +3,7 @@ import { v } from "convex/values";
 
 
 export default defineSchema({
-    vapors: defineTable({
+    traces: defineTable({
         name: v.string(),
         ownerId: v.string(),
         importStatus: v.optional(v.union(

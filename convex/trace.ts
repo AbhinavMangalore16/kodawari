@@ -11,7 +11,7 @@ export const create = mutation({
     if (!ident){
       throw new Error("Unauthorized!")
     }
-    await ctx.db.insert("vapors", {
+    await ctx.db.insert("traces", {
       name: args.name,
       ownerId: ident.subject,
       importStatus: "Success"
@@ -26,7 +26,7 @@ export const get = query({
     if (!identity) throw new Error("Unauthenticated!");
 
     return await ctx.db
-    .query("vapors")
+    .query("traces")
     .withIndex("by_owner", (q)=>q.eq("ownerId", identity.subject))
     .collect()
   },

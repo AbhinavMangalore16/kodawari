@@ -8,7 +8,7 @@
  * @module
  */
 
-import type * as vapors from "../vapors.js";
+import type * as traces from "../trace.js";
 
 import type {
   ApiFromModules,
@@ -17,7 +17,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
-  vapors: typeof vapors;
+  traces: typeof traces;
 }>;
 
 /**

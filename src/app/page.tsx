@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { SignInButton, SignUpButton, useAuth, UserProfile } from "@clerk/nextjs";
 
 function AuthenticatedContent() {
-  const vapors = useQuery(api.vapors.get);
-  const createVapor = useMutation(api.vapors.create);
+  const traces = useQuery(api.traces.get);
+  const createVapor = useMutation(api.traces.create);
   
   return (
     <div
@@ -66,13 +66,13 @@ function AuthenticatedContent() {
       </div>
       <div className="flex flex-col gap-2 p-4">
         <Button onClick={() => createVapor({ name: "Project1" })}>Add</Button>
-        {vapors === undefined && (
-          <div className="text-white opacity-70">Loading vapors..</div>
+        {traces === undefined && (
+          <div className="text-white opacity-70">Loading traces..</div>
         )}
-        {vapors?.length === 0 && (
-          <div className="text-white opacity-70">No vapors yet.</div>
+        {traces?.length === 0 && (
+          <div className="text-white opacity-70">No traces yet.</div>
         )}
-        {vapors?.map((vapor) => (
+        {traces?.map((vapor) => (
           <div
             className="border rounded p-2 flex flex-col text-white"
             key={vapor._id}
